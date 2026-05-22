@@ -31,8 +31,8 @@
 <%int cpt2 = Integer.parseInt(valeur); %>
 <%int cpt3 = Integer.parseInt(valeur); %>
     <p>
-        <% for (int i2 = 1; i2 <= cpt2;i++) { %>
-            <% for (int i3 = 1; i3 <= cpt3; i++) { %>
+        <% for (int i2 = 1; i2 <= cpt2;i2++) { %>
+            <% for (int i3 = 1; i3 <= cpt3; i3++) { %>
                <%= "*" %>
             <% } %>
             </br>
