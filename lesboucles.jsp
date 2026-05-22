@@ -59,7 +59,7 @@
 <%int cpt6 = Integer.parseInt(valeur); %>
 <%int cpt7 = Integer.parseInt(valeur); %>
     <p>
-        <% for (int i6 = 1; i6 <= 1 ;i6--) { %>
+        <% for (int i6 = cpt6 ; i6 <= 1 ;i6--) { %>
             <% for (int i7 = 1; i7 <= i6 ; i7++) { %>
                <%= "*" %>
             <% } %>
