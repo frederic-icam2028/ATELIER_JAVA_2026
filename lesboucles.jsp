@@ -75,14 +75,15 @@
     <p>
         <% for (int i8 = 1; i8 <= cpt8; i8++) { %>
 
-        <%-- Espaces --%>
-        <% for (int i9 = cpt8; i9 > i8; i9--) { %>
-            &nbsp;
-        <% } %>
-    
-        <%-- Etoiles --%>
-        <% for (int i10 = 1; i10 <= i8; i10++) { %>
-            <% "*" %>
+            <%-- Espaces --%>
+            <% for (int i9 = cpt8; i9 > i8; i9--) { %>
+                &nbsp;
+            <% } %>
+        
+            <%-- Etoiles --%>
+            <% for (int i10 = 1; i10 <= i8; i10++) { %>
+                <% "*" %>
+            <% } %>
         <% } %>
     </p>
 
