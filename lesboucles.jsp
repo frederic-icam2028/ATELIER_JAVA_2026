@@ -84,15 +84,24 @@
 </p>
 
 <h2>Exercice 5 : Triangle isocele</h2>
-<p>Ecrire le code afin de produire un triangle aligné sur la droite</p>
 
 <% int cpt10 = Integer.parseInt(valeur); %>
-
 <% for (int i = 1; i <= cpt10; i++) { %>
-    <% for (int j = cpt10; j > i; j--) { %>&nbsp;<% } %>
-    <% for (int k = 1; k <= i; k++) { %>*<% } %>
+
+    <%-- Espaces --%>
+    <% for (int j = 1; j <= cpt10 - i; j++) { %>
+        &nbsp;
+    <% } %>
+
+    <%-- Etoiles --%>
+    <% for (int k = 1; k <= i; k++) { %>
+        *
+    <% } %>
+
     <br>
+
 <% } %>
+
 </p>
 
 
