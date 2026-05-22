@@ -10,7 +10,7 @@
     <div class="google-logo">
       <span class="letter-g">G</span><span class="letter-o1">o</span><span class="letter-o2">o</span><span class="letter-g2">g</span><span class="letter-l">l</span><span class="letter-e">e</span>
     </div>
-    <h1 class="content-title">Exercices sur les tableaux</h1>
+    <h1 class="content-title">Exercices sur les tableaux <span class="help-icon" data-help="Saisissez des nombres séparés par des espaces. Le traitement calcule le carré, les sommes, le max, le min et la valeur la plus proche de zéro.">?</span></h1>
     <form action="#" method="post">
       <p>Saisir au minimum 3 chiffres à la suite, exemple : 6 78 15 <input type="text" name="chaine"></p>
       <p><input type="submit" value="Afficher"></p>

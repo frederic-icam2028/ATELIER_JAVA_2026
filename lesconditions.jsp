@@ -10,7 +10,7 @@
     <div class="google-logo">
       <span class="letter-g">G</span><span class="letter-o1">o</span><span class="letter-o2">o</span><span class="letter-g2">g</span><span class="letter-l">l</span><span class="letter-e">e</span>
     </div>
-    <h1 class="content-title">Exercices sur les conditions</h1>
+    <h1 class="content-title">Exercices sur les conditions <span class="help-icon" data-help="Saisissez A, B et C. Le code vérifie si C est compris entre A et B et indique si A est pair ou impair.">?</span></h1>
     <form action="#" method="post">
     <p>Saisir la valeur A : <input type="text" name="valeur1"></p>
     <p>Saisir la valeur B : <input type="text" name="valeur2"></p>

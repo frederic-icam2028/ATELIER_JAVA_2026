@@ -10,7 +10,7 @@
     <div class="google-logo">
       <span class="letter-g">G</span><span class="letter-o1">o</span><span class="letter-o2">o</span><span class="letter-g2">g</span><span class="letter-l">l</span><span class="letter-e">e</span>
     </div>
-    <h1 class="content-title">Exercices sur les chaînes de caractères</h1>
+    <h1 class="content-title">Exercices sur les chaînes de caractères <span class="help-icon" data-help="Entrez une phrase. Les résultats montrent longueur, sous-chaînes, recherche de 'e', inversion et comptage de voyelles/consonnes.">?</span></h1>
     <form action="#" method="post">
       <p>Saisir une chaîne (texte avec 6 caractères minimum) : <input type="text" name="chaine"></p>
       <p><input type="submit" value="Afficher"></p>
