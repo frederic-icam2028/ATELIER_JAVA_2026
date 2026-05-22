@@ -71,8 +71,6 @@
 
 <% int cpt8 = Integer.parseInt(valeur); %>
 
-<p style="font-family: monospace;">
-
 <% for (int i8 = 1; i8 <= cpt8; i8++) { %>
 
     <% for (int i9 = cpt8; i9 > i8; i9--) { %>&nbsp;<% } %>
@@ -86,24 +84,49 @@
 </p>
 
 <h2>Exercice 5 : Triangle isocele</h2>
-<p>Ecrire le code afin de produire un triangle rectangle aligné sur la droite</p>
-<p>Exemple si l'utilisateur saisie le valeur 5</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;*</br>&nbsp;&nbsp;&nbsp;**</br>&nbsp;&nbsp;***</br>&nbsp;****</br>*****</p>
+<p>Ecrire le code afin de produire un triangle aligné sur la droite</p>
+
+<% int cpt10 = Integer.parseInt(valeur); %>
+
+<% for (int i = 1; i <= cpt10; i++) { %>
+    <% for (int j = cpt10; j > i; j--) { %>&nbsp;<% } %>
+    <% for (int k = 1; k <= i; k++) { %>*<% } %>
+    <br>
+<% } %>
+</p>
+
 
 <h2>Exercice 6 : Le demi losange</h2>
 <p>Ecrire le code afin de produire un losange</p>
-<p>Exemple si l'utilisateur saisie le valeur 5</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**</br>&nbsp;&nbsp;&nbsp;&nbsp;***</br>&nbsp;&nbsp;****</br>*****</p>
-<p>*****</br>&nbsp;&nbsp;****</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</p>
+
+<% int cpt11 = Integer.parseInt(valeur); %>
+
+<p style="font-family: monospace;">
+<% for (int i = 1; i <= cpt11; i++) { %>
+    <% for (int j = cpt11; j > i; j--) { %>&nbsp;<% } %>
+    <% for (int k = 1; k <= i; k++) { %>*<% } %>
+    <br>
+<% } %>
+
+<% for (int i = cpt11 - 1; i >= 1; i--) { %>
+    <% for (int j = cpt11; j > i; j--) { %>&nbsp;<% } %>
+    <% for (int k = 1; k <= i; k++) { %>*<% } %>
+    <br>
+<% } %>
+</p>
+
 
 <h2>Exercice 7 : La table de multiplication</h2>
-<p>Ecrire le code afin de créser une table de multiplication</p>
-<p>Exemple si l'utilisateur saisie le valeur 5</p>
-<p>5 x 1 = 5</p>
-<p>5 x 2 = 10</p>
-<p>5 x 3 = 15</p>
-<p>5 x 4 = 20</p>
-<p>5 x 5 = 25</p>
+<p>Ecrire le code afin de créer une table de multiplication</p>
+
+<% int cpt12 = Integer.parseInt(valeur); %>
+
+<p>
+<% for (int i = 1; i <= cpt12; i++) { %>
+    <%= cpt12 %> x <%= i %> = <%= cpt12 * i %>
+    <br>
+<% } %>
+</p>
 
 <% } %>
 <p><a href="index.html">Retour au sommaire</a></p>
