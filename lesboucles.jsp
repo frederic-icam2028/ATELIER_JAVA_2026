@@ -42,7 +42,16 @@
 <h2>Exercice 2 : Triangle rectangle gauche</h2>
 <p>Ecrire le code afin de produire un triangle rectangle aligné sur la gauche</p>
 <p>Exemple si l'utilisateur saisie le valeur 5</p>
-<p>*</br>**</br>***</br>****</br>*****</p>
+<%int cpt4 = Integer.parseInt(valeur); %>
+<%int cpt5 = Integer.parseInt(valeur); %>
+    <p>
+        <% for (int i4 = 1; i4 <= cpt4;i4++) { %>
+            <% for (int i5 = 1; i5 <= i4-1; i5++) { %>
+               <%= "*" %>
+            <% } %>
+            </br>
+        <% } %>
+    </p>
 
 <h2>Exercice 3 : Triangle rectangle inversé</h2>
 <p>Ecrire le code afin de produire un triangle rectangle aligné sur la gauche</p>
