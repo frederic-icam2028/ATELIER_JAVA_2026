@@ -31,11 +31,12 @@
 <%int cpt2 = Integer.parseInt(valeur); %>
 <%int cpt3 = Integer.parseInt(valeur); %>
     <p>
-        <% for (int i = 1; i <= cpt2;i++) {
+        <% for (int i = 1; i <= cpt2;i++) { %>
             <% for (int i = 1; i <= cpt3; i++) { %>
                <%= "*" %>
-            <% } %> }
-        %>
+            <% } %>
+            </br>
+        <% } %>
     </p>
 
 <h2>Exercice 2 : Triangle rectangle gauche</h2>
