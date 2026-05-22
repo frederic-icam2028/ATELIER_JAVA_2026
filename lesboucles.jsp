@@ -11,117 +11,179 @@
     <input type="submit" value="Afficher">
 </form>
 
-<%-- Récupération de la valeur saisie par l'utilisateur --%>
 <% String valeur = request.getParameter("valeur"); %>
-    
-<%-- Vérification de l'existence de la valeur --%>
-<% if (valeur != null && !valeur.isEmpty()) { %>
-
-<%-- Boucle for pour afficher une ligne d'étoiles --%>
-    <%int cpt = Integer.parseInt(valeur); %>
-    <p>
-    <% for (int i = 1; i <= cpt; i++) { %>
-       <%= "*" %>
-    <% } %>
-    </p>
-
-<h2>Exercice 1 : Le carré d'étoiles</h2>
-<p>Ecrire le code afin de produire un carré d'étoile</p>
-<p>Exemple si l'utilisateur saisie le valeur 5</p>
-<%int cpt2 = Integer.parseInt(valeur); %>
-<%int cpt3 = Integer.parseInt(valeur); %>
-    <p>
-        <% for (int i2 = 1; i2 <= cpt2;i2++) { %>
-            <% for (int i3 = 1; i3 <= cpt3; i3++) { %>
-               <%= "*" %>
-            <% } %>
-            </br>
-        <% } %>
-    </p>
-
-<h2>Exercice 2 : Triangle rectangle gauche</h2>
-<p>Ecrire le code afin de produire un triangle rectangle aligné sur la gauche</p>
-<p>Exemple si l'utilisateur saisie le valeur 5</p>
-<%int cpt4 = Integer.parseInt(valeur); %>
-<%int cpt5 = Integer.parseInt(valeur); %>
-    <p>
-        <% for (int i4 = 1; i4 <= cpt4;i4++) { %>
-            <% for (int i5 = 1; i5 <= i4; i5++) { %>
-               <%= "*" %>
-            <% } %>
-            </br>
-        <% } %>
-    </p>
-
-<h2>Exercice 3 : Triangle rectangle inversé</h2>
-<p>Ecrire le code afin de produire un triangle rectangle aligné sur la gauche</p>
-<p>Exemple si l'utilisateur saisie le valeur 5</p>
-<%int cpt6 = Integer.parseInt(valeur); %>
-<%int cpt7 = Integer.parseInt(valeur); %>
-    <p>
-        <% for (int i6 = cpt6 ; i6 >= 1 ;i6--) { %>
-            <% for (int i7 = 1; i7 <= i6 ; i7++) { %>
-               <%= "*" %>
-            <% } %>
-            </br>
-        <% } %>
-    </p>
-
-<h2>Exercice 4 : Triangle rectangle 2</h2>
-
-<% int cpt8 = Integer.parseInt(valeur); %>
-
-<% for (int i8 = 1; i8 <= cpt8; i8++) { %>
-
-    <% for (int i9 = cpt8; i9 > i8; i9--) { %>&nbsp;<% } %>
-
-    <% for (int i10 = 1; i10 <= i8; i10++) { %>*<% } %>
-
-    <br>
-
-<% } %>
-
-</p>
-
-<h2>Exercice 5 : Triangle isocele</h2>
-
-<% int cpt10 = Integer.parseInt(valeur); %>
-
-<p>
-<% for (int i = 1; i <= cpt10; i++) { %><% for (int j = 1; j <= cpt10 - i; j++) { %> <% } %>
-<% for (int k = 1; k <= i; k++) { %>*<% } %>
-<br>
-<% } %>
-</p>
-
-
-<h2>Exercice 6 : Le losange</h2>
-
-<% int cpt11 = Integer.parseInt(valeur); %>
-
-<pre>
-<% for (int i = 1; i <= cpt11; i++) { %>
-<% for (int j = 1; j <= cpt11 - i; j++) { %> <% } %><% for (int k = 1; k <= i; k++) { %>*<% } %>
-<% } %>
-<% for (int i = cpt11 - 1; i >= 1; i--) { %>
-<% for (int j = 1; j <= cpt11 - i; j++) { %> <% } %><% for (int k = 1; k <= i; k++) { %>*<% } %>
-<% } %>
+<% if (valeur != null && !valeur.trim().isEmpty()) {
+    try {
+        int n = Integer.parseInt(valeur.trim());
+        if (n > 0) {
+%>
+<h2>1) Ligne d'étoiles</h2>
+<pre style="background:#f4f4f4;padding:8px;">
+<% for (int i = 0; i < n; i++) { out.print("*"); } %>
 </pre>
 
+<h2>2) Carré d'étoiles</h2>
+<pre style="background:#f4f4f4;padding:8px;">
+<% for (int i = 1; i <= n; i++) {
+       for (int j = 1; j <= n; j++) { out.print("*"); }
+       out.print("\n");
+   }
+%>
+</pre>
 
-<h2>Exercice 7 : La table de multiplication</h2>
-<p>Ecrire le code afin de créer une table de multiplication</p>
+<h2>3) Triangle rectangle gauche</h2>
+<pre style="background:#f4f4f4;padding:8px;">
+<% for (int i = 1; i <= n; i++) {
+       for (int j = 1; j <= i; j++) { out.print("*"); }
+       out.print("\n");
+   }
+%>
+</pre>
 
-<% int cpt12 = Integer.parseInt(valeur); %>
+<h2>4) Triangle rectangle inversé</h2>
+<pre style="background:#f4f4f4;padding:8px;">
+<% for (int i = n; i >= 1; i--) {
+       for (int j = 1; j <= i; j++) { out.print("*"); }
+       out.print("\n");
+   }
+%>
+</pre>
 
-<p>
-<% for (int i = 1; i <= cpt12; i++) { %>
-    <%= cpt12 %> x <%= i %> = <%= cpt12 * i %>
-    <br>
-<% } %>
-</p>
+<h2>5) Triangle rectangle droit</h2>
+<pre style="background:#f4f4f4;padding:8px;">
+<% for (int i = 1; i <= n; i++) {
+       for (int j = 1; j <= n - i; j++) { out.print(" "); }
+       for (int j = 1; j <= i; j++) { out.print("*"); }
+       out.print("\n");
+   }
+%>
+</pre>
 
-<% } %>
+<h2>6) Triangle isocèle</h2>
+<pre style="background:#f4f4f4;padding:8px;">
+<% for (int i = 1; i <= n; i++) {
+       for (int j = 1; j <= n - i; j++) { out.print(" "); }
+       for (int j = 1; j <= 2 * i - 1; j++) { out.print("*"); }
+       out.print("\n");
+   }
+%>
+</pre>
+
+<h2>7) Losange</h2>
+<pre style="background:#f4f4f4;padding:8px;">
+<% for (int i = 1; i <= n; i++) {
+       for (int j = 1; j <= n - i; j++) { out.print(" "); }
+       for (int j = 1; j <= 2 * i - 1; j++) { out.print("*"); }
+       out.print("\n");
+   }
+   for (int i = n - 1; i >= 1; i--) {
+       for (int j = 1; j <= n - i; j++) { out.print(" "); }
+       for (int j = 1; j <= 2 * i - 1; j++) { out.print("*"); }
+       out.print("\n");
+   }
+%>
+</pre>
+
+<h2>8) Table de multiplication</h2>
+<pre style="background:#f4f4f4;padding:8px;">
+<% for (int i = 1; i <= n; i++) {
+       out.print(n + " x " + i + " = " + (n * i));
+       out.print("\n");
+   }
+%>
+</pre>
+<%      } else { %>
+<p style="color:red;">Veuillez saisir un entier positif.</p>
+<%      }
+    } catch (NumberFormatException e) {
+%>
+<p style="color:red;">Valeur non valide : saisissez un entier.</p>
+<%    }
+} %>
+
+<p><a href="index.html">Retour au sommaire</a></p>
+</body>
+</html>>>>>>>> f7127e8 (Corrige les boissons de lesboucles.jsp pour les exercices de boucles)
+
+<h2>2) Carré d'étoiles</h2>
+<pre style="background:#f4f4f4;padding:8px;">
+<% for (int i = 1; i <= n; i++) {
+       for (int j = 1; j <= n; j++) { out.print("*"); }
+       out.print("\n");
+   }
+%>
+</pre>
+
+<h2>3) Triangle rectangle gauche</h2>
+<pre style="background:#f4f4f4;padding:8px;">
+<% for (int i = 1; i <= n; i++) {
+       for (int j = 1; j <= i; j++) { out.print("*"); }
+       out.print("\n");
+   }
+%>
+</pre>
+
+<h2>4) Triangle rectangle inversé</h2>
+<pre style="background:#f4f4f4;padding:8px;">
+<% for (int i = n; i >= 1; i--) {
+       for (int j = 1; j <= i; j++) { out.print("*"); }
+       out.print("\n");
+   }
+%>
+</pre>
+
+<h2>5) Triangle rectangle droit</h2>
+<pre style="background:#f4f4f4;padding:8px;">
+<% for (int i = 1; i <= n; i++) {
+       for (int j = 1; j <= n - i; j++) { out.print(" "); }
+       for (int j = 1; j <= i; j++) { out.print("*"); }
+       out.print("\n");
+   }
+%>
+</pre>
+
+<h2>6) Triangle isocèle</h2>
+<pre style="background:#f4f4f4;padding:8px;">
+<% for (int i = 1; i <= n; i++) {
+       for (int j = 1; j <= n - i; j++) { out.print(" "); }
+       for (int j = 1; j <= 2 * i - 1; j++) { out.print("*"); }
+       out.print("\n");
+   }
+%>
+</pre>
+
+<h2>7) Losange</h2>
+<pre style="background:#f4f4f4;padding:8px;">
+<% for (int i = 1; i <= n; i++) {
+       for (int j = 1; j <= n - i; j++) { out.print(" "); }
+       for (int j = 1; j <= 2 * i - 1; j++) { out.print("*"); }
+       out.print("\n");
+   }
+   for (int i = n - 1; i >= 1; i--) {
+       for (int j = 1; j <= n - i; j++) { out.print(" "); }
+       for (int j = 1; j <= 2 * i - 1; j++) { out.print("*"); }
+       out.print("\n");
+   }
+%>
+</pre>
+
+<h2>8) Table de multiplication</h2>
+<pre style="background:#f4f4f4;padding:8px;">
+<% for (int i = 1; i <= n; i++) {
+       out.print(n + " x " + i + " = " + (n * i));
+       out.print("\n");
+   }
+%>
+</pre>
+<%      } else { %>
+<p style="color:red;">Veuillez saisir un entier positif.</p>
+<%      }
+    } catch (NumberFormatException e) {
+%>
+<p style="color:red;">Valeur non valide : saisissez un entier.</p>
+<%    }
+} %>
+
 <p><a href="index.html">Retour au sommaire</a></p>
 </body>
 </html>
