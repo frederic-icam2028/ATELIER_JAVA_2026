@@ -86,43 +86,34 @@
 <h2>Exercice 5 : Triangle isocele</h2>
 
 <% int cpt10 = Integer.parseInt(valeur); %>
+
+<pre>
+
 <% for (int i = 1; i <= cpt10; i++) { %>
 
-    <%-- Espaces --%>
-    <% for (int j = 1; j <= cpt10 - i; j++) { %>
-        &nbsp;
-    <% } %>
+    <% for (int j = 1; j <= cpt10 - i; j++) { %> <% } %>
 
-    <%-- Etoiles --%>
-    <% for (int k = 1; k <= i; k++) { %>
-        *
-    <% } %>
+    <% for (int k = 1; k <= i; k++) { %>*<% } %>
 
-    <br>
+<%="\n"%>
 
 <% } %>
 
-</p>
+</pre>
 
 
-<h2>Exercice 6 : Le demi losange</h2>
-<p>Ecrire le code afin de produire un losange</p>
+<h2>Exercice 6 : Le losange</h2>
 
 <% int cpt11 = Integer.parseInt(valeur); %>
 
-<p style="font-family: monospace;">
+<pre>
 <% for (int i = 1; i <= cpt11; i++) { %>
-    <% for (int j = cpt11; j > i; j--) { %>&nbsp;<% } %>
-    <% for (int k = 1; k <= i; k++) { %>*<% } %>
-    <br>
+<% for (int j = 1; j <= cpt11 - i; j++) { %> <% } %><% for (int k = 1; k <= i; k++) { %>*<% } %>
 <% } %>
-
 <% for (int i = cpt11 - 1; i >= 1; i--) { %>
-    <% for (int j = cpt11; j > i; j--) { %>&nbsp;<% } %>
-    <% for (int k = 1; k <= i; k++) { %>*<% } %>
-    <br>
+<% for (int j = 1; j <= cpt11 - i; j++) { %> <% } %><% for (int k = 1; k <= i; k++) { %>*<% } %>
 <% } %>
-</p>
+</pre>
 
 
 <h2>Exercice 7 : La table de multiplication</h2>
