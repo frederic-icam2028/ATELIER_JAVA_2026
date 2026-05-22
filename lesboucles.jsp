@@ -59,7 +59,7 @@
 <%int cpt6 = Integer.parseInt(valeur); %>
 <%int cpt7 = Integer.parseInt(valeur); %>
     <p>
-        <% for (int i6 = cpt6 ; i6 <= 1 ;i6--) { %>
+        <% for (int i6 = cpt6 ; i6 >= 1 ;i6--) { %>
             <% for (int i7 = 1; i7 <= i6 ; i7++) { %>
                <%= "*" %>
             <% } %>
@@ -70,7 +70,21 @@
 <h2>Exercice 4 : Triangle rectangle 2</h2>
 <p>Ecrire le code afin de produire un triangle rectangle aligné sur la droite</p>
 <p>Exemple si l'utilisateur saisie le valeur 5</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**</br>&nbsp;&nbsp;&nbsp;&nbsp;***</br>&nbsp;&nbsp;****</br>*****</p>
+<%int cpt8 = Integer.parseInt(valeur); %>
+<%int cpt9 = Integer.parseInt(valeur); %>
+    <p>
+        <% for (int i8 = 1; i8 <= cpt8; i8++) { %>
+
+        <%-- Espaces --%>
+        <% for (int i9 = cpt8; i9 > i8; i9--) { %>
+            &nbsp;
+        <% } %>
+    
+        <%-- Etoiles --%>
+        <% for (int i10 = 1; i10 <= i8; i10++) { %>
+            <% "*" %>
+        <% } %>
+    </p>
 
 <h2>Exercice 5 : Triangle isocele</h2>
 <p>Ecrire le code afin de produire un triangle rectangle aligné sur la droite</p>
