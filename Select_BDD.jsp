@@ -5,9 +5,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Connexion à MariaDB via JSP</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Exemple de connexion à MariaDB avec JSP</h1>
+<div class="container">
+  <div class="page-box">
+    <div class="google-logo">
+      <span class="letter-g">G</span><span class="letter-o1">o</span><span class="letter-o2">o</span><span class="letter-g2">g</span><span class="letter-l">l</span><span class="letter-e">e</span>
+    </div>
+    <h1 class="content-title">Connexion à MariaDB via JSP</h1>
     <% 
     String url = "jdbc:mariadb://localhost:3306/films";
     String user = "cnam";
@@ -63,5 +69,8 @@
 Votre travail est de créer votre code afin de répondre aux besoins définis ci-dessus. L'application exploitera le language JSP (JAVA) pour interagir avec la base de données MariaDB.
 L’application pourra être enrichie avec des fonctionnalités supplémentaires telles que des recommandations de livres, des notifications pour les retours en retard, ou encore des rapports statistiques sur l'utilisation des livres pour améliorer l'expérience utilisateur et la gestion de la bibliothèque.
 </p>
+    <div class="footer">Page inspirée du style Google</div>
+  </div>
+</div>
 </body>
 </html>

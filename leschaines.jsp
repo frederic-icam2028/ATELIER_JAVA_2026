@@ -2,71 +2,99 @@
 <html>
 <head>
 <title>Les chaines</title>
+<link rel="stylesheet" href="style.css">
 </head>
-<body bgcolor=white>
-<h1>Exercices sur les chaines de charactères</h1>
-<form action="#" method="post">
-    <p>Saisir une chaine (Du texte avec 6 caractères minimum) : <input type="text" id="inputValeur" name="chaine">
-    <p><input type="submit" value="Afficher">
-</form>
-<%-- Récupération des valeurs --%>
-    <% String chaine = request.getParameter("chaine"); %>
-    
-    <% if (chaine != null) { %>
+<body>
+<div class="container">
+  <div class="page-box">
+    <div class="google-logo">
+      <span class="letter-g">G</span><span class="letter-o1">o</span><span class="letter-o2">o</span><span class="letter-g2">g</span><span class="letter-l">l</span><span class="letter-e">e</span>
+    </div>
+    <h1 class="content-title">Exercices sur les chaînes de caractères</h1>
+    <form action="#" method="post">
+      <p>Saisir une chaîne (texte avec 6 caractères minimum) : <input type="text" name="chaine"></p>
+      <p><input type="submit" value="Afficher"></p>
+    </form>
 
-    <%-- Obtention de la longueur de la chaîne --%>
-    <% int longueurChaine = chaine.length(); %>
-    <p>La longueur de votre chaîne est de <%= longueurChaine %> caractères</p>
-
-    <%-- Extraction du 3° caractère dans votre chaine --%>
-    <% char caractereExtrait = chaine.charAt(2); %>
-    <p>Le 3° caractère de votre chaine est la lettre <%= caractereExtrait %></p>
-
-    <%-- Obtention d'une sous-chaîne --%>
-    <% String sousChaine = chaine.substring(2, 6); %>
-    <p>Une sous chaine de votre texte : <%= sousChaine %></p>
-
-    <%-- Recharche de la lettre "e" --%>
-    <% char recherche = 'e'; 
-       int position = chaine.indexOf(recherche); %>
-    <p>Votre premier "e" est en : <%= position %></p>
-
-    
-<h2>Exercice 1 : Combien de 'e' dans notre chaine de charactère ?</h2>
-<p>Ecrire un programme pour compter le nombre de lettre e dans votre chaine de charactères</p>
-
-<h2>Exercice 2 : Affichage verticale</h2>
-<p>Ecrire le programme pour afficher le texte en vertical</br>
-Exemple : Bonjour</br>
-B</br>
-o</br>
-n</br>
-j</br>
-o</br>
-u</br>
-r</p>
-
-<h2>Exercice 3 : Retour à la ligne</h2>
-<p>La présence d'un espace provoque un retour à la ligne </br>
-Exemple : L'hiver sera pluvieux</br>
-L'hiver</br>
-sera</br>
-pluvieux</p>
-
-<h2>Exercice 4 : Afficher une lettre sur deux</h2>
-<p>Ecrire le programme pour afficher seulement une lettre sur deux de votre texte </br>
-Exemple : L'hiver sera pluvieux</br>
-Lhvrsr lvex</p>
-
-<h2>Exercice 5 : La phrase en verlant</h2>
-<p>Ecrire le programme afin d'afficher le texte en verlant </br>
-Exemple : L'hiver sera pluvieux</br>
-xueivulp ares revih'l</p>
-
-<h2>Exercice 6 : Consonnes et voyelles</h2>
-<p>Ecrire le programme afin de compter les consonnes et les voyelles dans votre texte</p>
-
+<%
+String chaine = request.getParameter("chaine");
+if (chaine != null) {
+    String texte = chaine.trim();
+    if (!texte.isEmpty()) {
+        int longueur = texte.length();
+        int positionE = texte.indexOf('e');
+        int positionEmaj = texte.indexOf('E');
+        if (positionE == -1 || (positionEmaj != -1 && positionEmaj < positionE)) {
+            positionE = positionEmaj;
+        }
+        int countE = 0;
+        int countVoyelles = 0;
+        int countConsonnes = 0;
+        StringBuilder vertical = new StringBuilder();
+        StringBuilder wordsLines = new StringBuilder();
+        StringBuilder uneLettreSurDeux = new StringBuilder();
+        StringBuilder reverse = new StringBuilder();
+        String voyelles = "aeiouyAEIOUY";
+        String[] mots = texte.split("\\s+");
+        for (int i = 0; i < texte.length(); i++) {
+            char c = texte.charAt(i);
+            if (c == 'e' || c == 'E') {
+                countE++;
+            }
+            if (Character.isLetter(c)) {
+                if (voyelles.indexOf(c) != -1) {
+                    countVoyelles++;
+                } else {
+                    countConsonnes++;
+                }
+            }
+            vertical.append(c).append("<br/>");
+            if (i % 2 == 0) {
+                uneLettreSurDeux.append(c);
+            }
+            reverse.insert(0, c);
+        }
+        for (int i = 0; i < mots.length; i++) {
+            wordsLines.append(mots[i]);
+            if (i < mots.length - 1) {
+                wordsLines.append("<br/>");
+            }
+        }
+%>
+<h2>Résultats <span class="help-icon" data-help="Calcule la longueur, extrait des sous-chaînes, recherche 'e', affiche verticalement, découpe sur espaces, montre une lettre sur deux, inverse la chaîne et compte voyelles/consonnes.">?</span></h2>
+<p>Longueur : <%= longueur %> caractères</p>
+<% if (longueur >= 3) { %>
+<p>3° caractère : <%= texte.charAt(2) %></p>
+<% } else { %>
+<p style="color:red;">La chaîne contient moins de 3 caractères.</p>
 <% } %>
+<% if (longueur >= 6) { %>
+<p>Sous-chaîne (positions 3 à 6) : <%= texte.substring(2, 6) %></p>
+<% } else { %>
+<p style="color:red;">La chaîne contient moins de 6 caractères pour extraire une sous-chaîne.</p>
+<% } %>
+<p>Première occurrence de 'e' : <%= positionE >= 0 ? (positionE + 1) : -1 %></p>
+<p>Nombre de 'e' dans la chaîne : <%= countE %></p>
+<h3>Affichage vertical</h3>
+<div style="background:#f4f4f4;padding:8px;"><%= vertical.toString() %></div>
+<h3>Retour à la ligne sur espace</h3>
+<div style="background:#f4f4f4;padding:8px;"><%= wordsLines.toString() %></div>
+<h3>Une lettre sur deux</h3>
+<p><%= uneLettreSurDeux.toString() %></p>
+<h3>Phrase en verlant</h3>
+<p><%= reverse.toString() %></p>
+<h3>Consonnes et voyelles</h3>
+<p>Voyelles : <%= countVoyelles %> | Consonnes : <%= countConsonnes %></p>
+<%    } else { %>
+<p style="color:red;">Veuillez saisir une chaîne non vide.</p>
+<%    }
+}
+%>
+
 <p><a href="index.html">Retour au sommaire</a></p>
+  </div>
+  <div class="footer">Page inspirée du style Google</div>
+</div>
+<script src="script.js"></script>
 </body>
 </html>
