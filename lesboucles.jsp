@@ -3,7 +3,7 @@
 <head>
 <title>Boucles</title>
 </head>
-<body bgcolor=white>
+<body bgcolor="white">
 <h1>Exercices sur les boucles</h1>
 <form action="#" method="post">
     <label for="inputValeur">Saisir le nombre d'étoiles : </label>
@@ -11,8 +11,9 @@
     <input type="submit" value="Afficher">
 </form>
 
-<% String valeur = request.getParameter("valeur"); %>
-<% if (valeur != null && !valeur.trim().isEmpty()) {
+<% 
+String valeur = request.getParameter("valeur");
+if (valeur != null && !valeur.trim().isEmpty()) {
     try {
         int n = Integer.parseInt(valeur.trim());
         if (n > 0) {
@@ -99,7 +100,8 @@
 %>
 <p style="color:red;">Valeur non valide : saisissez un entier.</p>
 <%    }
-} %>
+}
+%>
 
 <p><a href="index.html">Retour au sommaire</a></p>
 </body>
