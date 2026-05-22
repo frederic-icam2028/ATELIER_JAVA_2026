@@ -88,7 +88,9 @@
 <% int cpt10 = Integer.parseInt(valeur); %>
 
 <p>
-<% for (int i = 1; i <= cpt10; i++) { %><% for (int j = 1; j <= cpt10 - i; j++) { %> <% } %><% for (int k = 1; k <= i; k++) { %>*<% } %>
+<% for (int i = 1; i <= cpt10; i++) { %><% for (int j = 1; j <= cpt10 - i; j++) { %> <% } %>
+<% for (int k = 1; k <= i; k++) { %>*<% } %>
+<br>
 <% } %>
 </p>
 
